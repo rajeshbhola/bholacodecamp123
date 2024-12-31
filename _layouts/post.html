@@ -29,27 +29,27 @@ layout: default
         <hr>
     </div>
 
-    <!-- Related Articles -->
-              <section class="bg-gray-100 text-white p-8 rounded-lg mt-8">
-            <h2 class="text-4xl font-bold mb-8">Related Articles</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" %}
-                {% assign related_posts = related_posts | where_exp: "post", "post.tags contains page.tags[0]" | limit: 10 %}
-                {% for post in related_posts %}
-                    <div class="col-span-1">
-                        <ul class="list-disc pl-5">
-                            <li class="mb-4">
-                                <h3 class="text-xl font-bold mb-2">
-                                    <a href="{{ post.url | relative_url }}" class="text-blue-500 hover:text-blue-300 transition-colors duration-200 hover:underline">
-                                        {{ post.title }}
-                                    </a>
-                                </h3>
-                                <time class="text-sm text-gray-500">{{ post.date | date: "%B %d, %Y" }} | By {{ site.author.name }}</time>
-                            </li>
-                        </ul>
-                    </div>
-                {% endfor %}
+   <!-- Related Articles -->
+<section class="bg-gray-100 text-white p-8 rounded-lg mt-8">
+    <h2 class="text-4xl font-bold mb-8">Related Articles</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+        {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" %}
+        {% assign related_posts = related_posts | where_exp: "post", "post.tags contains page.tags[0]" | limit: 10 %}
+        {% for post in related_posts %}
+            <div class="col-span-1">
+                <ul class="list-disc pl-5">
+                    <li class="mb-4">
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="{{site.baseurl}}{{ post.url | relative_url }}" class="text-blue-500 hover:text-blue-300 transition-colors duration-200 hover:underline">
+                                {{ post.title }}
+                            </a>
+                        </h3>
+                        <time class="text-sm text-gray-500">{{ post.date | date: "%B %d, %Y" }} | By {{ site.author.name }}</time>
+                    </li>
+                </ul>
             </div>
-        </section>
+        {% endfor %}
+    </div>
+</section>
 </article>
