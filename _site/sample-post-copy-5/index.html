@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bholaCodeCamp | Creating a simple Grails application</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://db.onlinewebfonts.com/c/cf3fb387331afda8f5d7f9c8dea3cd13?family=Jaturat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon link for the browser tab -->
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+    <header class="bg-gray-800 shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <svg
+  width="40"
+  height="40"
+  viewBox="0 0 120 120"
+>
+  <!-- Outer Circle (Black) -->
+  <circle cx="60" cy="60" r="50" fill="#fff" />
+  
+  <!-- Inner Circles (White) -->
+  <circle cx="45" cy="50" r="6" fill="#000" />
+  <circle cx="75" cy="50" r="6" fill="#000" />
+  
+  <!-- Smile Path (Black) -->
+  <path
+    d="M 40 70 Q 60 90 80 70"
+    fill="#000"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Vertical Line (Black) -->
+  <path
+    d="M 60 10 L 60 25"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Top Circle (White) -->
+  <circle cx="60" cy="10" r="4" fill="#fff" />
+  
+  <!-- Left Path (Black) -->
+  <path
+    d="M 20 60 L 5 60"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Right Path (Black) -->
+  <path
+    d="M 100 60 L 115 60"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Left Circle (White) -->
+  <circle cx="5" cy="60" r="4" fill="#fff" />
+  
+  <!-- Right Circle (White) -->
+  <circle cx="115" cy="60" r="4" fill="#fff" />
+</svg>&nbsp;&nbsp;
+
+
+                <a href="/" class="text-2xl font-bold logo-txt1 text-gray-100">bholaCodeCamp</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="flex items-center lg:hidden">
+                <button type="button" class="mobile-menu-button">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex items-center space-x-8 logo-txt">
+                <a href="/" class="text-gray-200 hover:text-gray-500">Home</a>
+                <a href="/about" class="text-gray-200 hover:text-gray-500">About</a>
+                <a href="/blog" class="text-gray-200 hover:text-gray-500">Blog</a>
+                <a href="/videos" class="text-gray-200 hover:text-gray-500">Videos</a>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden lg:hidden logo-txt">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">About</a>
+                <a href="/blog" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Blog</a>
+                <a href="/videos" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Videos</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden')
+    })
+</script>
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <article class="max-w-4xl mx-auto">
+    <!-- Post Header -->
+    <header class="mb-8">
+        <h1 class="text-4xl md:text-4xl font-bold mb-4">Creating a simple Grails application</h1>
+        <div class="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4 text-gray-600 mb-4">
+            <time datetime="2024-12-01T00:00:00+05:30" class="text-sm md:text-base">
+                December 01, 2024
+            </time>
+            <span class="hidden md:inline">|</span>
+            <div class="flex flex-wrap space-x-2">
+                <a href="/about" class="text-sm px-3 py-1 bg-gray-800 text-gray-300 rounded-full">
+                    Rajesh Bhola
+                </a>
+            </div>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="w-full h-48 md:h-64 lg:h-96 object-cover rounded-lg mb-8">
+        
+    </header>
+
+    <!-- Post Content -->
+    <div class="prose prose-lg max-w-none">
+        <p><strong>Table of Contents</strong></p>
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#what-is-the-grails-framework" id="markdown-toc-what-is-the-grails-framework">What is the Grails Framework</a></li>
+  <li><a href="#how-to-install-grails" id="markdown-toc-how-to-install-grails">How to Install Grails</a></li>
+  <li><a href="#how-to-set-up-a-new-project" id="markdown-toc-how-to-set-up-a-new-project">How to Set Up a New Project</a></li>
+  <li><a href="#next-step" id="markdown-toc-next-step">Next Step</a></li>
+  <li><a href="#how-to-run-the-application" id="markdown-toc-how-to-run-the-application">How to Run the Application</a></li>
+  <li><a href="#how-to-stop-the-application" id="markdown-toc-how-to-stop-the-application">How to Stop the Application</a></li>
+  <li><a href="#demo" id="markdown-toc-demo">Demo</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+<p><br /></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Creating a simple Grails application is a straight-forward process. Here’s a quick step-by-step guide to get you started. And this process is applicable for both VS Code and Intellij Ultimate Edition IDE.
+<br />
+<br /></p>
+
+<h2 id="what-is-the-grails-framework">What is the Grails Framework</h2>
+
+<p>Grails is an open-source web application framework that uses Groovy, a dynamic programming language for the Java platform.
+<br /><br /></p>
+
+<p>It is designed to simplify and accelerate web application development by providing a
+<strong>convention-over-configuration</strong> approach, built on top of popular technologies like <strong>Spring</strong>, <strong>Hibernate</strong>, and <strong>GSP</strong>(Groovy Server Pages).
+<br /><br />
+Grails is particularly useful for building scalable, enterprise-grade web applications with minimal configuration and boilerplate code, making it ideal for rapid application development.
+<br />
+<br /></p>
+
+<h2 id="how-to-install-grails">How to Install Grails</h2>
+
+<p>First, make sure you have Java Development Kit <strong>(JDK)</strong> installed on your system.
+<br /><br />
+Next, download and install the <strong>Grails Framework</strong> from the official site or use a tool like <strong>SDKMAN!</strong> to manage your Grails installation.
+<br /><br />
+<strong>Install:</strong> Download and install Grails -&gt; <a href="https://grails.org/download.html" target="\_blank">Go to Download Page</a>
+<br />
+<br /></p>
+
+<h2 id="how-to-set-up-a-new-project">How to Set Up a New Project</h2>
+
+<p>Open a terminal or command prompt and
+Run the following command to create a new Grails application:
+<br /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">grails create-app myapp</code></pre></figure>
+
+<p><br />
+Replace “<strong>myapp</strong>” with the name you want for your application.
+<br />
+<br /></p>
+
+<h2 id="next-step">Next Step</h2>
+<p>Move to the newly created project directory</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>myapp</code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="how-to-run-the-application">How to Run the Application</h2>
+
+<p>Start the Grails application with the following command
+<br /></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">grails run-app</code></pre></figure>
+
+<p><br />
+This will start the embedded server and you can access your application at <strong>http://localhost:8080</strong>.</p>
+
+<p>Once the server is running, open your browser and go to <strong>http://localhost:8080</strong>. You should see the default Grails welcome page, indicating that your application is running successfully.
+<br />
+<br /></p>
+
+<h2 id="how-to-stop-the-application">How to Stop the Application</h2>
+
+<p>When you’re done, you can stop the Grails server by pressing <strong>CTRL + C</strong> in the terminal where it’s running.
+<br />
+<br /></p>
+
+<h2 id="demo">Demo</h2>
+
+<p><br /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>You’ve successfully created and run a simple Grails application.
+<br />
+<br /></p>
+
+<p><em>happy coding!</em></p>
+
+        <br>
+        <hr>
+    </div>
+
+    <!-- Related Articles -->
+              <section class="bg-gray-100 text-white p-8 rounded-lg mt-8">
+            <h2 class="text-4xl font-bold mb-8">Related Articles</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                
+                
+                
+                    <div class="col-span-1">
+                        <ul class="list-disc pl-5">
+                            <li class="mb-4">
+                                <h3 class="text-xl font-bold mb-2">
+                                    <a href="/sample-post-copy-4/" class="text-blue-500 hover:text-blue-300 transition-colors duration-200 hover:underline">
+                                        Creating a simple Grails application
+                                    </a>
+                                </h3>
+                                <time class="text-sm text-gray-500">December 01, 2024 | By Rajesh Bhola</time>
+                            </li>
+                        </ul>
+                    </div>
+                
+                    <div class="col-span-1">
+                        <ul class="list-disc pl-5">
+                            <li class="mb-4">
+                                <h3 class="text-xl font-bold mb-2">
+                                    <a href="/sample-post-copy-3/" class="text-blue-500 hover:text-blue-300 transition-colors duration-200 hover:underline">
+                                        Creating a simple Grails application
+                                    </a>
+                                </h3>
+                                <time class="text-sm text-gray-500">December 01, 2024 | By Rajesh Bhola</time>
+                            </li>
+                        </ul>
+                    </div>
+                
+            </div>
+        </section>
+</article>
+    </main>
+    <footer class="bg-gray-800 text-white mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p class="text-sm text-gray-400">&copy; 2024 bholaCodeCamp. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                
+                <a href="https://github.com/rajeshbhola?tab=repositories" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+                
+                <a href="https://twitter.com/therajeshbhola" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                
+                
+                <a href="https://youtube.com/@bholarajesh" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-12 right-8 bg-gray-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-opacity opacity-0"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<footer class="bg-gray-800 text-white mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p class="text-sm text-gray-400">&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                {% if site.social.github %}
+                <a href="https://github.com/{{ site.social.github }}" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+                {% if site.social.twitter %}
+                <a href="https://twitter.com/{{ site.social.twitter }}" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                {% endif %}
+                {% if site.social.youtube %}
+                <a href="https://youtube.com/@{{ site.social.youtube }}" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</footer>

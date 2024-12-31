@@ -1,0 +1,209 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Search Input -->
+    <input type="text" id="search-input" placeholder="Search by tags..." class="w-full p-2 mb-4 border border-gray-300 rounded-lg text-gray-900">
+    <br><br>
+    <h1 class="text-4xl font-bold mb-8">All Blog Posts</h1>
+
+    <!-- Posts List -->
+    <div id="posts-container">
+        {% for post in site.posts %}
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="{{ post.tags | join: ' ' }}" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    {% if post.image %}
+                    <img src="{{ post.image }}" alt="{{ post.title }}" class="h-full w-full object-cover" width="600" height="400">
+                    {% endif %}
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            {% for tag in post.tags %}
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="{{ tag }}">#{{ tag }}</a> 
+                            {% endfor %}
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="{{ post.url }}" class="text-gray-100 hover:text-blue-600">{{ post.title }}</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">{{ post.description | strip_html | truncatewords: 8 }}</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">{{ post.author }}</span>
+                            <span class="text-sm text-gray-500">{{ post.date | date: "%B %d, %Y" }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="mt-12 flex justify-center space-x-2" id="pagination-controls">
+        <button id="prev-page" class="px-4 py-2 bg-gray-600 text-white rounded-lg">Prev</button>
+        <div id="page-numbers" class="flex space-x-2"></div>
+        <button id="next-page" class="px-4 py-2 bg-gray-600 text-white rounded-lg">Next</button>
+        <button id="last-page" class="px-4 py-2 bg-gray-600 text-white rounded-lg">Last</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const postsPerPage = 6;
+        let currentPage = 1;
+        const posts = document.querySelectorAll('.post-item');
+        const totalPages = Math.ceil(posts.length / postsPerPage);
+        const paginationControls = document.getElementById('pagination-controls');
+        const pageNumbersContainer = document.getElementById('page-numbers');
+        const prevPageButton = document.getElementById('prev-page');
+        const nextPageButton = document.getElementById('next-page');
+        const lastPageButton = document.getElementById('last-page');
+        const searchInput = document.getElementById('search-input');
+        const tagLinks = document.querySelectorAll('.tag-link');
+
+        function showPosts(page) {
+            const start = (page - 1) * postsPerPage;
+            const end = page * postsPerPage;
+            for (let i = 0; i < posts.length; i++) {
+                if (i >= start && i < end) {
+                    posts[i].style.display = 'block';
+                } else {
+                    posts[i].style.display = 'none';
+                }
+            }
+            updatePaginationControls();
+        }
+
+        function updatePaginationControls() {
+            pageNumbersContainer.innerHTML = '';
+            const maxPagesToShow = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+            if (endPage - startPage < maxPagesToShow - 1) {
+                startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+
+            if (startPage > 1) {
+                const firstPageButton = document.createElement('button');
+                firstPageButton.textContent = '1';
+                firstPageButton.classList.add('px-4', 'py-2', 'bg-gray-600', 'text-white', 'rounded-lg');
+                firstPageButton.addEventListener('click', function() {
+                    currentPage = 1;
+                    showPosts(currentPage);
+                });
+                pageNumbersContainer.appendChild(firstPageButton);
+
+                if (startPage > 2) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.classList.add('px-4', 'py-2', 'text-gray-600');
+                    pageNumbersContainer.appendChild(ellipsis);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageNumberButton = document.createElement('button');
+                pageNumberButton.textContent = i;
+                pageNumberButton.classList.add('px-4', 'py-2', 'bg-gray-600', 'text-white', 'rounded-lg');
+                if (i === currentPage) {
+                    pageNumberButton.classList.add('bg-blue-600');
+                }
+                pageNumberButton.addEventListener('click', function() {
+                    currentPage = i;
+                    showPosts(currentPage);
+                });
+                pageNumbersContainer.appendChild(pageNumberButton);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.classList.add('px-4', 'py-2', 'text-gray-600');
+                    pageNumbersContainer.appendChild(ellipsis);
+                }
+
+                const lastPageButton = document.createElement('button');
+                lastPageButton.textContent = totalPages;
+                lastPageButton.classList.add('px-4', 'py-2', 'bg-gray-600', 'text-white', 'rounded-lg');
+                lastPageButton.addEventListener('click', function() {
+                    currentPage = totalPages;
+                    showPosts(currentPage);
+                });
+                pageNumbersContainer.appendChild(lastPageButton);
+            }
+
+            prevPageButton.disabled = currentPage === 1;
+            nextPageButton.disabled = currentPage === totalPages;
+        }
+
+        prevPageButton.addEventListener('click', function() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPosts(currentPage);
+            }
+        });
+
+        nextPageButton.addEventListener('click', function() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPosts(currentPage);
+            }
+        });
+
+        lastPageButton.addEventListener('click', function() {
+            currentPage = totalPages;
+            showPosts(currentPage);
+        });
+
+        // Show initial posts
+        showPosts(currentPage);
+
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.toLowerCase();
+            let visiblePosts = 0;
+            posts.forEach(post => {
+                const tags = post.getAttribute('data-tags').toLowerCase();
+                if (tags.includes(query)) {
+                    post.style.display = 'block';
+                    visiblePosts++;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+            // Update the pagination controls
+            currentPage = 1;
+            updatePaginationControls();
+        });
+
+        // Tag click functionality
+        tagLinks.forEach(tagLink => {
+            tagLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                const tag = tagLink.getAttribute('data-tag').toLowerCase();
+                searchInput.value = tag;
+                let visiblePosts = 0;
+                posts.forEach(post => {
+                    const tags = post.getAttribute('data-tags').toLowerCase();
+                    if (tags.includes(tag)) {
+                        post.style.display = 'block';
+                        visiblePosts++;
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+                // Update the pagination controls
+                currentPage = 1;
+                updatePaginationControls();
+            });
+        });
+    });
+</script>

@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: antiquewhite;
+}
+
+
+h1, h2, h3, .logo-txt {
+  font-family: 'Jaturat', sans-serif;
+  color: #262728;
+}
+.logo-txt1 {
+  font-family: 'Jaturat', sans-serif;
+}
+h2 {
+  font-size: 32px;
+}
+
+p, ul, ol {
+  color: rgb(106, 105, 105);
+  font-size: 21px;
+  line-height: 1.7em;
+}
+
+a {
+  color: royalblue;
+}
+
+
+mark {
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+b, strong {
+  color: rgb(24, 24, 25);
+}
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1733756874903-a57a4ccfea61?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.mobile-menu-button {
+  background-color: rgb(19, 19, 20);
+}
+
+.logo {
+  font-family: 'Jaturat', sans-serif;
+}
+#markdown-toc {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#markdown-toc a {
+  color: royalblue;
+  text-decoration: none;
+}
+
+#markdown-toc a:hover {
+  text-decoration: underline;
+}
+
+
+
+::-moz-selection {
+  background-color: #6577dd;
+  color: white;
+}
+
+::selection {
+  background-color: #6577dd;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #d4d5d6, #c2c2c4);
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+
+
+
+
+
+
+
+/***************
+  Darkly Pygments Theme
+  (c) 2014 Sourcey
+  http://sourcey.com
+***************/
+
+.highlight {
+  white-space: pre;
+  overflow: auto;
+  word-wrap: normal; /* horizontal scrolling */
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding-left: 20px;
+  background: #19191d;
+  color: #c1c2c3;
+}
+.highlight .hll {
+  background-color: #ffc;
+}
+.highlight .gd {
+  color: #2e3436;
+  background-color: #0e1416;
+}
+.highlight .gr {
+  color: #eeeeec;
+  background-color: #c00;
+}
+.highlight .gi {
+  color: #babdb6;
+  background-color: #1f2b2d;
+}
+.highlight .go {
+  color: #2c3032;
+  background-color: #2c3032;
+}
+.highlight .kt {
+  color: #e3e7df;
+}
+.highlight .ni {
+  color: #888a85;
+}
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: #8d9684;
+}
+.highlight .err,
+.highlight .g,
+.highlight .l,
+.highlight .n,
+.highlight .x,
+.highlight .p,
+.highlight .ge,
+.highlight .gp,
+.highlight .gs,
+.highlight .gt,
+.highlight .ld,
+.highlight .s,
+.highlight .nc,
+.highlight .nd,
+.highlight .ne,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py,
+.highlight .ow,
+.highlight .w,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss,
+.highlight .bp {
+  color: #c1c2c3;
+}
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .nt {
+  color: #729fcf;
+}
+.highlight .cp,
+.highlight .gh,
+.highlight .gu,
+.highlight .na,
+.highlight .nf {
+  color: #e9a94b;
+}
+.highlight .m,
+.highlight .nb,
+.highlight .no,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il {
+  color: #8ae234;
+}
+.highlight .o {
+  color: #989daa;
+}
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+  color: #fff;
+}
+
+/* filepath: /d:/Skills_Development/Jekyll/blog-design-1/assets/css/main.css */
+pre {
+  position: relative;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #4a5568;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+  background-color: #2d3748;
+}
+
+.copy-msg {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #38a169;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  display: none;
+}

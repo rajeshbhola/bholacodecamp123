@@ -1,0 +1,56 @@
+# Site Settings
+title: bholaCodeCamp
+description: "At BholaCodeCamp, I'm dedicated to helping developers at all levels enhance their skills and advance their careers. My tutorials, resources, and community are designed to support your learning journey."
+baseurl: "/"
+url: "https://rajeshbhola.github.io/"
+permalink: /:title/
+
+# Author Info
+author:
+  name: Rajesh Bhola
+  bio: Fullstack Developer and Technical Blog Writer
+
+# Social Links
+social:
+  twitter: therajeshbhola
+  github: rajeshbhola?tab=repositories
+  youtube: bholarajesh
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+paginate: 6
+paginate_path: "/page:num/"
+
+
+# Default Front Matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+
+# Plugin Settings
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Analytics
+google_analytics: UA-XXXXXXXX-X
+
+# Compression
+sass:
+  style: compressed
+
+# Exclude Files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md

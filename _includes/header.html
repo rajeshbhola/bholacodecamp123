@@ -1,0 +1,97 @@
+<header class="bg-gray-800 shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <svg
+  width="40"
+  height="40"
+  viewBox="0 0 120 120"
+>
+  <!-- Outer Circle (Black) -->
+  <circle cx="60" cy="60" r="50" fill="#fff" />
+  
+  <!-- Inner Circles (White) -->
+  <circle cx="45" cy="50" r="6" fill="#000" />
+  <circle cx="75" cy="50" r="6" fill="#000" />
+  
+  <!-- Smile Path (Black) -->
+  <path
+    d="M 40 70 Q 60 90 80 70"
+    fill="#000"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Vertical Line (Black) -->
+  <path
+    d="M 60 10 L 60 25"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Top Circle (White) -->
+  <circle cx="60" cy="10" r="4" fill="#fff" />
+  
+  <!-- Left Path (Black) -->
+  <path
+    d="M 20 60 L 5 60"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Right Path (Black) -->
+  <path
+    d="M 100 60 L 115 60"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Left Circle (White) -->
+  <circle cx="5" cy="60" r="4" fill="#fff" />
+  
+  <!-- Right Circle (White) -->
+  <circle cx="115" cy="60" r="4" fill="#fff" />
+</svg>&nbsp;&nbsp;
+
+
+                <a href="{{ site.baseurl }}" class="text-2xl font-bold logo-txt1 text-gray-100">{{ site.title }}</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="flex items-center lg:hidden">
+                <button type="button" class="mobile-menu-button">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex items-center space-x-8 logo-txt">
+                <a href="{{ site.baseurl }}" class="text-gray-200 hover:text-gray-500">Home</a>
+                <a href="{{ site.baseurl }}about" class="text-gray-200 hover:text-gray-500">About</a>
+                <a href="{{ site.baseurl }}blog" class="text-gray-200 hover:text-gray-500">Blog</a>
+                <a href="{{ site.baseurl }}videos" class="text-gray-200 hover:text-gray-500">Videos</a>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden lg:hidden logo-txt">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{{ site.baseurl }}" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Home</a>
+                <a href="{{ site.baseurl }}about" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">About</a>
+                <a href="{{ site.baseurl }}blog" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Blog</a>
+                <a href="{{ site.baseurl }}videos" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Videos</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden')
+    })
+</script>

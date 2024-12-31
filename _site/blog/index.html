@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bholaCodeCamp | Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://db.onlinewebfonts.com/c/cf3fb387331afda8f5d7f9c8dea3cd13?family=Jaturat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicon link for the browser tab -->
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+    <header class="bg-gray-800 shadow-sm">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <svg
+  width="40"
+  height="40"
+  viewBox="0 0 120 120"
+>
+  <!-- Outer Circle (Black) -->
+  <circle cx="60" cy="60" r="50" fill="#fff" />
+  
+  <!-- Inner Circles (White) -->
+  <circle cx="45" cy="50" r="6" fill="#000" />
+  <circle cx="75" cy="50" r="6" fill="#000" />
+  
+  <!-- Smile Path (Black) -->
+  <path
+    d="M 40 70 Q 60 90 80 70"
+    fill="#000"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Vertical Line (Black) -->
+  <path
+    d="M 60 10 L 60 25"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Top Circle (White) -->
+  <circle cx="60" cy="10" r="4" fill="#fff" />
+  
+  <!-- Left Path (Black) -->
+  <path
+    d="M 20 60 L 5 60"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Right Path (Black) -->
+  <path
+    d="M 100 60 L 115 60"
+    stroke="#fff"
+    stroke-width="4"
+  />
+  
+  <!-- Left Circle (White) -->
+  <circle cx="5" cy="60" r="4" fill="#fff" />
+  
+  <!-- Right Circle (White) -->
+  <circle cx="115" cy="60" r="4" fill="#fff" />
+</svg>&nbsp;&nbsp;
+
+
+                <a href="/" class="text-2xl font-bold logo-txt1 text-gray-100">bholaCodeCamp</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="flex items-center lg:hidden">
+                <button type="button" class="mobile-menu-button">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex items-center space-x-8 logo-txt">
+                <a href="/" class="text-gray-200 hover:text-gray-500">Home</a>
+                <a href="/about" class="text-gray-200 hover:text-gray-500">About</a>
+                <a href="/blog" class="text-gray-200 hover:text-gray-500">Blog</a>
+                <a href="/videos" class="text-gray-200 hover:text-gray-500">Videos</a>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden lg:hidden logo-txt">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Home</a>
+                <a href="/about" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">About</a>
+                <a href="/blog" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Blog</a>
+                <a href="/videos" class="block px-3 py-2 text-gray-200 hover:text-gray-500 hover:bg-gray-600 rounded">Videos</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const mobileMenuButton = document.querySelector('.mobile-menu-button')
+    const mobileMenu = document.querySelector('.mobile-menu')
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden')
+    })
+</script>
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Search Input -->
+    <input type="text" id="search-input" placeholder="Search by tags..." class="w-full p-2 mb-4 border border-gray-300 rounded-lg text-gray-900">
+    <br><br>
+    <h1 class="text-4xl font-bold mb-8">All Blog Posts</h1>
+
+    <!-- Posts List -->
+    <div id="posts-container">
+        
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="grails" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    
+                    <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="h-full w-full object-cover" width="600" height="400">
+                    
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="grails">#grails</a> 
+                            
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="/sample-post/" class="text-gray-100 hover:text-blue-600">Creating a simple Grails application</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">Learn how to build a modern blog using...</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">Rajesh Bhola</span>
+                            <span class="text-sm text-gray-500">December 01, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="grails" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    
+                    <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="h-full w-full object-cover" width="600" height="400">
+                    
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="grails">#grails</a> 
+                            
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="/sample-post-copy/" class="text-gray-100 hover:text-blue-600">Creating a simple Grails application</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">Learn how to build a modern blog using...</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">Rajesh Bhola</span>
+                            <span class="text-sm text-gray-500">December 01, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="java" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    
+                    <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="h-full w-full object-cover" width="600" height="400">
+                    
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="java">#java</a> 
+                            
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="/sample-post-copy-5/" class="text-gray-100 hover:text-blue-600">Creating a simple Grails application</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">Learn how to build a modern blog using...</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">Rajesh Bhola</span>
+                            <span class="text-sm text-gray-500">December 01, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="java" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    
+                    <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="h-full w-full object-cover" width="600" height="400">
+                    
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="java">#java</a> 
+                            
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="/sample-post-copy-4/" class="text-gray-100 hover:text-blue-600">Creating a simple Grails application</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">Learn how to build a modern blog using...</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">Rajesh Bhola</span>
+                            <span class="text-sm text-gray-500">December 01, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="java" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    
+                    <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="h-full w-full object-cover" width="600" height="400">
+                    
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="java">#java</a> 
+                            
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="/sample-post-copy-3/" class="text-gray-100 hover:text-blue-600">Creating a simple Grails application</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">Learn how to build a modern blog using...</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">Rajesh Bhola</span>
+                            <span class="text-sm text-gray-500">December 01, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="grails" style="display: none;">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    
+                    <img src="https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Creating a simple Grails application" class="h-full w-full object-cover" width="600" height="400">
+                    
+                </div>
+                <div class="flex flex-col justify-center p-6 md:w-1/2">
+                    <div class="mb-4">
+                        <span class="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                            
+                            <a href="#" class="tag-link text-blue-400 hover:text-blue-600" data-tag="grails">#grails</a> 
+                            
+                        </span>
+                    </div>
+                    <h2 class="mb-6 text-3xl font-bold leading-tight text-gray-100">
+                        <a href="/sample-post-copy-2/" class="text-gray-100 hover:text-blue-600">Creating a simple Grails application</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">Learn how to build a modern blog using...</p>
+                    <div class="flex items-center">
+                        <img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full">
+                        <div class="ml-4 flex w-full items-center justify-between">
+                            <span class="font-semibold text-gray-200">Rajesh Bhola</span>
+                            <span class="text-sm text-gray-500">December 01, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="mt-12 flex justify-center space-x-2" id="pagination-controls">
+        <button id="prev-page" class="px-4 py-2 bg-gray-600 text-white rounded-lg">Prev</button>
+        <div id="page-numbers" class="flex space-x-2"></div>
+        <button id="next-page" class="px-4 py-2 bg-gray-600 text-white rounded-lg">Next</button>
+        <button id="last-page" class="px-4 py-2 bg-gray-600 text-white rounded-lg">Last</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const postsPerPage = 6;
+        let currentPage = 1;
+        const posts = document.querySelectorAll('.post-item');
+        const totalPages = Math.ceil(posts.length / postsPerPage);
+        const paginationControls = document.getElementById('pagination-controls');
+        const pageNumbersContainer = document.getElementById('page-numbers');
+        const prevPageButton = document.getElementById('prev-page');
+        const nextPageButton = document.getElementById('next-page');
+        const lastPageButton = document.getElementById('last-page');
+        const searchInput = document.getElementById('search-input');
+        const tagLinks = document.querySelectorAll('.tag-link');
+
+        function showPosts(page) {
+            const start = (page - 1) * postsPerPage;
+            const end = page * postsPerPage;
+            for (let i = 0; i < posts.length; i++) {
+                if (i >= start && i < end) {
+                    posts[i].style.display = 'block';
+                } else {
+                    posts[i].style.display = 'none';
+                }
+            }
+            updatePaginationControls();
+        }
+
+        function updatePaginationControls() {
+            pageNumbersContainer.innerHTML = '';
+            const maxPagesToShow = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+            if (endPage - startPage < maxPagesToShow - 1) {
+                startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+
+            if (startPage > 1) {
+                const firstPageButton = document.createElement('button');
+                firstPageButton.textContent = '1';
+                firstPageButton.classList.add('px-4', 'py-2', 'bg-gray-600', 'text-white', 'rounded-lg');
+                firstPageButton.addEventListener('click', function() {
+                    currentPage = 1;
+                    showPosts(currentPage);
+                });
+                pageNumbersContainer.appendChild(firstPageButton);
+
+                if (startPage > 2) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.classList.add('px-4', 'py-2', 'text-gray-600');
+                    pageNumbersContainer.appendChild(ellipsis);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageNumberButton = document.createElement('button');
+                pageNumberButton.textContent = i;
+                pageNumberButton.classList.add('px-4', 'py-2', 'bg-gray-600', 'text-white', 'rounded-lg');
+                if (i === currentPage) {
+                    pageNumberButton.classList.add('bg-blue-600');
+                }
+                pageNumberButton.addEventListener('click', function() {
+                    currentPage = i;
+                    showPosts(currentPage);
+                });
+                pageNumbersContainer.appendChild(pageNumberButton);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.classList.add('px-4', 'py-2', 'text-gray-600');
+                    pageNumbersContainer.appendChild(ellipsis);
+                }
+
+                const lastPageButton = document.createElement('button');
+                lastPageButton.textContent = totalPages;
+                lastPageButton.classList.add('px-4', 'py-2', 'bg-gray-600', 'text-white', 'rounded-lg');
+                lastPageButton.addEventListener('click', function() {
+                    currentPage = totalPages;
+                    showPosts(currentPage);
+                });
+                pageNumbersContainer.appendChild(lastPageButton);
+            }
+
+            prevPageButton.disabled = currentPage === 1;
+            nextPageButton.disabled = currentPage === totalPages;
+        }
+
+        prevPageButton.addEventListener('click', function() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPosts(currentPage);
+            }
+        });
+
+        nextPageButton.addEventListener('click', function() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPosts(currentPage);
+            }
+        });
+
+        lastPageButton.addEventListener('click', function() {
+            currentPage = totalPages;
+            showPosts(currentPage);
+        });
+
+        // Show initial posts
+        showPosts(currentPage);
+
+        // Search functionality
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.toLowerCase();
+            let visiblePosts = 0;
+            posts.forEach(post => {
+                const tags = post.getAttribute('data-tags').toLowerCase();
+                if (tags.includes(query)) {
+                    post.style.display = 'block';
+                    visiblePosts++;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+            // Update the pagination controls
+            currentPage = 1;
+            updatePaginationControls();
+        });
+
+        // Tag click functionality
+        tagLinks.forEach(tagLink => {
+            tagLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                const tag = tagLink.getAttribute('data-tag').toLowerCase();
+                searchInput.value = tag;
+                let visiblePosts = 0;
+                posts.forEach(post => {
+                    const tags = post.getAttribute('data-tags').toLowerCase();
+                    if (tags.includes(tag)) {
+                        post.style.display = 'block';
+                        visiblePosts++;
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+                // Update the pagination controls
+                currentPage = 1;
+                updatePaginationControls();
+            });
+        });
+    });
+</script>
+    </main>
+    <footer class="bg-gray-800 text-white mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p class="text-sm text-gray-400">&copy; 2024 bholaCodeCamp. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                
+                <a href="https://github.com/rajeshbhola?tab=repositories" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+                
+                <a href="https://twitter.com/therajeshbhola" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                
+                
+                <a href="https://youtube.com/@bholarajesh" class="text-gray-400 hover:text-white">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Back to Top Button -->
+<button id="back-to-top" class="fixed bottom-12 right-8 bg-gray-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-opacity opacity-0"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
