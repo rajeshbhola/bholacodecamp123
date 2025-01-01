@@ -41,17 +41,7 @@ mark {
 b, strong {
   color: rgb(24, 24, 25);
 }
-.hero {
-  background-image: url('https://rajeshbhola.github.io/bholacodecamp/assets/images/ban1.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+
 .mobile-menu-button {
   background-color: rgb(19, 19, 20);
 }
