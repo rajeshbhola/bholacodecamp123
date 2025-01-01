@@ -6,7 +6,7 @@ date: 2024-12-01
 author: Rajesh Bhola
 categories: [web-development, tutorials]
 tags: [grails]
-image: ban1.png
+image: /assets/images/ban1.png
 featured: true
 ---
 
