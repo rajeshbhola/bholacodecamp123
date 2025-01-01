@@ -11,31 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     
-     <!-- Open Graph Meta -->
-  <meta content="bholaCodeCamp" property="og:site_name" /><meta content="Creating a simple Java application" property="og:title" /><meta content="article" property="og:type" /><meta content="Learn how to build a modern blog using Jekyll and Tailwind CSS with step-by-step instructions" property="og:description" /><meta content="http://localhost:4000/sample-post-copy-2/" property="og:url" /><meta
-    content="2024-12-03T00:00:00+05:30"
-    property="article:published_time"
-  />
-  <meta content="http://localhost:4000/about/" property="article:author" /><meta
-    content="http://localhost:4000/assets/img/https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA=="
-    property="og:image"
-  /><!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@therajeshbhola" />
-  <meta name="twitter:creator" content="@therajeshbhola" /><meta name="twitter:title" content="Creating a simple Java application" /><meta name="twitter:url" content="http://localhost:4000/sample-post-copy-2/" /><meta name="twitter:description" content="Learn how to build a modern blog using Jekyll and Tailwind CSS with step-by-step instructions" /><meta
-    name="twitter:image:src"
-    content="http://localhost:4000/assets/img/https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA=="
-  /><!-- Favicon -->
-  <link
-    rel="icon"
-    type="image/x-icon"
-    href="/assets/img/logo.webp"
-  />
-  <link
-    rel="icon"
-    href="//assets/img/logo.webp"
-    type="image/x-icon"
-  />
+    <!-- Open Graph Meta -->
+    <meta content="bholaCodeCamp" property="og:site_name" /><meta content="Creating a simple Java application" property="og:title" /><meta content="article" property="og:type" /><meta content="Learn how to build a modern blog using Jekyll and Tailwind CSS with step-by-step instructions" property="og:description" /><meta content="http://localhost:4000/sample-post-copy-2/" property="og:url" /><meta content="2024-12-03T00:00:00+05:30" property="article:published_time" />
+        <meta content="http://localhost:4000/about/" property="article:author" /><meta content="http://localhost:4000/assets/img/https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==" property="og:image" /><!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@therajeshbhola" />
+    <meta name="twitter:creator" content="@therajeshbhola" /><meta name="twitter:title" content="Creating a simple Java application" /><meta name="twitter:url" content="http://localhost:4000/sample-post-copy-2/" /><meta name="twitter:description" content="Learn how to build a modern blog using Jekyll and Tailwind CSS with step-by-step instructions" /><meta name="twitter:image:src" content="http://localhost:4000/assets/img/https://images.unsplash.com/photo-1734375181552-cfa83d404033?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==" /><!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/logo.webp" />
+    <link rel="icon" href="//assets/img/logo.webp" type="image/x-icon" />
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
     <header class="bg-gray-800 shadow-sm">
@@ -320,29 +303,31 @@ This will start the embedded server and you can access your application at <stro
 </footer>
 
     <!-- Back to Top Button -->
-<button id="back-to-top" class="fixed bottom-12 right-8 bg-gray-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-opacity opacity-0" aria-label="back-to-top"><i class="fas fa-arrow-up"></i></button>
+    <button id="back-to-top" class="fixed bottom-12 right-8 bg-gray-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-opacity opacity-0" aria-label="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const backToTopButton = document.getElementById('back-to-top');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove('opacity-0');
-                backToTopButton.classList.add('opacity-100');
-            } else {
-                backToTopButton.classList.remove('opacity-100');
-                backToTopButton.classList.add('opacity-0');
-            }
-        });
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0');
+                    backToTopButton.classList.add('opacity-100');
+                } else {
+                    backToTopButton.classList.remove('opacity-100');
+                    backToTopButton.classList.add('opacity-0');
+                }
+            });
 
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
