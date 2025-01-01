@@ -36,9 +36,9 @@
         <meta content="{{ '/about/' | absolute_url }}" property="article:author" />
     {%- endif -%}
     {%- if page.image -%}
-        <meta content="{{ '/assets/img/' | append:page.image | absolute_url }}" property="og:image" />
+        <meta content="{{ '/assets/images/' | append:page.image | absolute_url }}" property="og:image" />
     {%- else -%}
-        <meta content="{{ '/assets/img/logo.png' | absolute_url }}" property="og:image" />
+        <meta content="{{ '/assets/images/bcc1.png' | absolute_url }}" property="og:image" />
     {%- endif -%}
 
     <!-- Twitter Cards -->
@@ -59,14 +59,14 @@
         <meta name="twitter:description" content="{{ site.description }}" />
     {%- endif -%}
     {%- if page.image -%}
-        <meta name="twitter:image:src" content="{{ '/assets/img/' | append:page.image | absolute_url }}" />
+        <meta name="twitter:image:src" content="{{ '/assets/images/' | append:page.image | absolute_url }}" />
     {%- else -%}
-        <meta name="twitter:image:src" content="{{ '/assets/img/logo.png' | absolute_url }}" />
+        <meta name="twitter:image:src" content="{{ '/assets/images/bcc1.png' | absolute_url }}" />
     {%- endif -%}
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{'/assets/img/logo.webp' | relative_url }}" />
-    <link rel="icon" href="{{ site.baseurl }}/assets/img/logo.webp" type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="{{'/assets/images/bcc1.png' | relative_url }}" />
+    <link rel="icon" href="{{ site.baseurl }}/assets/images/bcc1.png" type="image/x-icon" />
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
     {% include header.html %}
