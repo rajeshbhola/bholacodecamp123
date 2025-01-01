@@ -16,7 +16,7 @@ title: Blog
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2">
                     {% if post.image %}
-                    <img src="{{ post.image }}" alt="{{ post.title }}" class="h-full w-full object-cover" width="600" height="400">
+                    <img src="{{site.baseurl}}{{ post.image }}" alt="{{ post.title }}" class="h-full w-full object-cover" width="600" height="400">
                     {% endif %}
                 </div>
                 <div class="flex flex-col justify-center p-6 md:w-1/2">
