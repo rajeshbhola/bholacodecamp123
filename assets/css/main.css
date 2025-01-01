@@ -75,6 +75,13 @@ b, strong {
 
 
 
+
+@media (min-width: 768px) {
+  .hero {
+      padding: 3rem;
+  }
+}
+
 ::-moz-selection {
   background-color: #6577dd;
   color: white;
