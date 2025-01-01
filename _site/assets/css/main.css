@@ -8,7 +8,9 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-
+.bg-gray-800 {
+  background-color: black
+}
 h1, h2, h3, .logo-txt {
   font-family: 'Jaturat', sans-serif;
   color: #262728;
@@ -40,7 +42,7 @@ b, strong {
   color: rgb(24, 24, 25);
 }
 .hero {
-  background-image: url('https://images.unsplash.com/photo-1733756874903-a57a4ccfea61?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url('https://rajeshbhola.github.io/bholacodecamp/assets/images/ban1.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

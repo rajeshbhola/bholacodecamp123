@@ -12,7 +12,7 @@ title: Blog
     <!-- Posts List -->
     <div id="posts-container">
         {% for post in site.posts %}
-        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-gray-800 shadow-lg mb-8 post-item" data-tags="{{ post.tags | join: ' ' }}" style="display: none;">
+        <article class="mx-auto max-w-5xl overflow-hidden rounded-lg bg-black shadow-lg mb-8 post-item" data-tags="{{ post.tags | join: ' ' }}" style="display: none;">
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2">
                     {% if post.image %}
