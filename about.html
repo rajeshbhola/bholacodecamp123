@@ -3,30 +3,92 @@ layout: default
 title: About
 ---
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="flex text-4xl font-bold mb-8">About Me<img src="https://avatars.githubusercontent.com/u/82930824?v=4" alt="Author avatar" class="h-10 w-10 rounded-full"></h1>
-    
-    <div class="prose prose-lg dark:prose-dark">
-        <p>Welcome to <mark class="bg-gray-700 text-gray-200">bholaCodeCamp</mark>, a comprehensive coding blog dedicated to all things related to programming, technology, and development tools. Whether you're a beginner or an advanced coder, you'll find valuable content that enhance your learning journey.</p>
-        <br>
-        <p>I am <b>Rajesh Bhola</b>, a developer and owner of bholaCodeCamp. As a software engineer, I thrive on problem-solving, delivering quality projects, and sharing my knowledge through blogs.</p>
-        <br><br>
-        
-        <h2 class="text-3xl">Skills</h2>
-        <ul class="mb-6">
-            <li><i class="fas fa-code"></i>&nbsp;&nbsp;Fullstack Web Development</li>
-            <li><i class="fas fa-pencil-alt"></i> &nbsp;&nbsp;Technical Blog Writing</li>
-            <li><i class="fas fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;Video & AI Development</li>
-        </ul>
-        <br>
-        
-        <h2 class="text-3xl">Contact</h2>
-        <p>Feel free to reach out to me at:</p>
-        <ul>
-            <li><i class="fas fa-envelope"></i> 
-            &nbsp;&nbsp;Youtube - <a href="https://youtube.com/@{{ site.social.youtube }}">@{{ site.social.youtube }}</a></li>
-            <li><i class="fab fa-github"></i> &nbsp;&nbsp;GitHub - <a href="https://github.com/{{ site.social.github }}">@rajeshbhola</a></li>
-            <li><i class="fab fa-twitter"></i> &nbsp;&nbsp;Twitter - <a href="https://twitter.com/{{ site.social.twitter }}">@{{ site.social.twitter }}</a></li>
-        </ul>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-black mb-6">bholaCodeCamp</h1>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">Your Ultimate Programming Resource</p>
+    </div>
+
+    <!-- Mission Statement -->
+    <div class="bg-black rounded-lg p-8 mb-8">
+        <h2 class="font-bold text-white mb-4">About Me</h2>
+        <p class="text-gray-400 leading-relaxed">
+            I am passionate about sharing knowledge and empowering developers through high-quality coding tutorials, 
+            blogs, and videos. Our platform focuses on making programming concepts accessible to everyone, 
+            from beginners to advanced developers.
+        </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="mb-8">
+        <h2 class="text-2xl font-bold text-black mb-8">What We Offer</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-black rounded-lg p-6">
+                <i class="fas fa-book text-blue-500 text-2xl mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-100 mb-2">In-depth Tutorials</h3>
+                <p class="text-gray-400">Comprehensive programming tutorials for all skill levels</p>
+            </div>
+            <div class="bg-black rounded-lg p-6">
+                <i class="fas fa-video text-blue-500 text-2xl mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-100 mb-2">Video Content</h3>
+                <p class="text-gray-400">Visual demonstrations of complex programming concepts</p>
+            </div>
+            <div class="bg-black rounded-lg p-6">
+                <i class="fas fa-code text-blue-500 text-2xl mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-100 mb-2">Practical Examples</h3>
+                <p class="text-gray-400">Real-world coding examples and solutions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Categories -->
+    <div class="mb-16">
+        <h2 class="text-2xl font-bold text-black mb-8">My Content Covers</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="bg-black rounded-lg p-4 text-center">
+                <i class="fas fa-globe text-blue-500 mb-2"></i>
+                <span class="text-gray-100">Web Development</span>
+            </div>
+            <div class="bg-black rounded-lg p-4 text-center">
+                <i class="fas fa-mobile-alt text-blue-500 mb-2"></i>
+                <span class="text-gray-100">Mobile Development</span>
+            </div>
+            <div class="bg-black rounded-lg p-4 text-center">
+                <i class="fas fa-laptop-code text-blue-500 mb-2"></i>
+                <span class="text-gray-100">Software Engineering</span>
+            </div>
+            <div class="bg-black rounded-lg p-4 text-center">
+                <i class="fas fa-project-diagram text-blue-500 mb-2"></i>
+                <span class="text-gray-100">Data Structures</span>
+            </div>
+            <div class="bg-black rounded-lg p-4 text-center">
+                <i class="fas fa-code-branch text-blue-500 mb-2"></i>
+                <span class="text-gray-100">Programming Languages</span>
+            </div>
+            <div class="bg-black rounded-lg p-4 text-center">
+                <i class="fas fa-tools text-blue-500 mb-2"></i>
+                <span class="text-gray-100">Development Tools</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="bg-black rounded-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-100 mb-6">Stay Connected</h2>
+        <div class="flex flex-wrap gap-6">
+            <a href="https://github.com/{{ site.social.github }}" class="flex items-center text-gray-400 hover:text-white">
+                <i class="fab fa-github text-2xl mr-2"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://youtube.com/@{{ site.social.youtube }}" class="flex items-center text-gray-400 hover:text-white">
+                <i class="fab fa-youtube text-2xl mr-2"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://twitter.com/{{ site.social.twitter }}" class="flex items-center text-gray-400 hover:text-white">
+                <i class="fab fa-twitter text-2xl mr-2"></i>
+                <span>Twitter</span>
+            </a>
+        </div>
     </div>
 </div>
