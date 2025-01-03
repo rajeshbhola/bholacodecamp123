@@ -1,7 +1,7 @@
 # Site Settings
 title: bholaCodeCamp
 description: "At BholaCodeCamp, I'm dedicated to helping developers at all levels enhance their skills and advance their careers. My tutorials, resources, and community are designed to support your learning journey."
-baseurl: "/"
+baseurl: "/bholacodecamp"
 url: "https://rajeshbhola.github.io/"
 permalink: /:title/
 
