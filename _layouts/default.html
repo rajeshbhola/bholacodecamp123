@@ -38,7 +38,7 @@
     {%- if page.image -%}
         <meta content="{{ page.image | absolute_url }}" property="og:image" />
     {%- else -%}
-        <meta content="{{ '/assets/images/bcc1.png' | absolute_url }}" property="og:image" />
+        <meta content="{{ 'assets/images/bcc.webp' | absolute_url }}" property="og:image" />
     {%- endif -%}
 
     <!-- Twitter Cards -->
@@ -61,12 +61,12 @@
     {%- if page.image -%}
         <meta name="twitter:image:src" content="{{ page.image | absolute_url }}" />
     {%- else -%}
-        <meta name="twitter:image:src" content="{{ '/assets/images/bcc1.png' | absolute_url }}" />
+        <meta name="twitter:image:src" content="{{ 'assets/images/bcc.webp' | absolute_url }}" />
     {%- endif -%}
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{'/assets/images/bcc1.png' | relative_url }}" sizes="16x16 32x32 48x48">
-    <link rel="icon" href="{{ site.baseurl }}/assets/images/bcc1.png" type="image/x-icon" sizes="16x16 32x32 48x48">
+    <link rel="icon" type="image/x-icon" href="{{'assets/images/bcc.webp' | relative_url }}" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="{{ site.baseurl }}assets/images/bcc.webp" type="image/x-icon" sizes="16x16 32x32 48x48">
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
     {% include header.html %}
