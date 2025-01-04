@@ -59,8 +59,12 @@ Replace "**myapp**" with the name you want for your application.
 ## Next Step
 Move to the newly created project directory
 
-{% highlight bash %}
-cd myapp
+{% highlight java %}
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
 {% endhighlight %}
 <br>
 
