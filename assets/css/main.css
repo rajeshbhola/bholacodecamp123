@@ -17,6 +17,7 @@ h1, h2, h3, .logo-txt {
 }
 .logo-txt1 {
   font-family: 'Jaturat', sans-serif;
+  margin-left: -10px;
 }
 h2 {
   font-size: 32px;
