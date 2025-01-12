@@ -43,6 +43,9 @@ b, strong {
 .logo {
   font-family: 'Jaturat', sans-serif;
 }
+.logo-img {
+  margin-left: -20px;
+}
 #markdown-toc {
   list-style-type: disc;
   padding-left: 1.5rem;
